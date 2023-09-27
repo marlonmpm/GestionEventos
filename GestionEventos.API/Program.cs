@@ -5,32 +5,30 @@ namespace GestionEventos.API
     {
         public static void Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
+            // Crear una instancia de ProgramaEvento
+            ProgramaEvento miEvento = new ProgramaEvento();
 
-            // Add services to the container.
+            // Configurar los detalles del evento
+            miEvento.NombreEvento = "Comic Con";
+            miEvento.FechaInicio = new DateTime(2023, 10, 15);
+            miEvento.FechaFinalizacion = new DateTime(2023, 10, 17);
+            miEvento.Ubicacion = "Medellin";
+            miEvento.Descripcion = "Un festival geek sobre Anime/Manga y cultura Asiatica en general";
 
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            // Agregar sesiones al evento
+            miEvento.AgregarSesion(new Sesion("Sesión 1", new DateTime(2023, 10, 15, 9, 0, 0), new DateTime(2023, 10, 15, 10, 30, 0), "Evanna Lynch ", "Harry Potter"));
+            miEvento.AgregarSesion(new Sesion("Sesión 2", new DateTime(2023, 10, 15, 11, 0, 0), new DateTime(2023, 10, 15, 12, 30, 0), "Mario Castañeda", "La voz de Goku"));
 
-            var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            // Mostrar el programa del evento
+            Console.WriteLine("Programa del Evento: " + miEvento.NombreEvento);
+            foreach (var sesion in miEvento.Sesiones)
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                Console.WriteLine("Sesión: " + sesion.NombreSesion);
+                Console.WriteLine("Hora de Inicio: " + sesion.HoraInicio.ToShortTimeString());
+                Console.WriteLine("Hora de Finalización: " + sesion.HoraFinalizacion.ToShortTimeString());
+                Console.WriteLine("Ponente: " + sesion.Ponente);
+                Console.WriteLine("Tema: " + sesion.Tema);
+                Console.WriteLine();
             }
-
-            app.UseHttpsRedirection();
-
-            app.UseAuthorization();
-
-
-            app.MapControllers();
-
-            app.Run();
-        }
     }
 }
