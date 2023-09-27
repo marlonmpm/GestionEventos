@@ -16,6 +16,5 @@
             AreaDeInteres = area;
             TipoDeParticipacion = tipo;
         }
-
     }
 }
