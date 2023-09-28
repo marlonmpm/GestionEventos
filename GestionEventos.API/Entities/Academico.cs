@@ -3,9 +3,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GestionEventos.API.Entities
 {
-//    Evento Académico: Representa un evento específico, como una conferencia o simposio.Debe
-//contener atributos como nombre del evento, fecha de inicio y finalización, ubicación,
-//descripción y tema del evento
+
     public class Academico
     {
         public string nombreEvento, ubicacion, descripcion, temaEvento;
@@ -22,6 +20,7 @@ namespace GestionEventos.API.Entities
             this.fechaInicio = fechaInicioAp;
             this.fechaFinalizacion = fechaFinalizacionAp;
         }
+
 
         public override string ToString()
         {
