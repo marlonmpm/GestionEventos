@@ -1,4 +1,4 @@
-﻿namespace GestionEventos.API
+﻿namespace GestionEventos.API.Entities
 {
     public class Participantes
     {

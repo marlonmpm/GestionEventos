@@ -1,5 +1,4 @@
-
-namespace GestionEventos.API
+namespace GestionEventos.API.Entities
 {
     public class Program
     {
@@ -24,11 +23,12 @@ namespace GestionEventos.API
             foreach (var sesion in miEvento.Sesiones)
             {
                 Console.WriteLine("Sesión: " + sesion.NombreSesion);
-                Console.WriteLine("Hora de Inicio: " + sesion.HoraInicio.ToShortTimeString());
-                Console.WriteLine("Hora de Finalización: " + sesion.HoraFinalizacion.ToShortTimeString());
+                Console.WriteLine("Hora de Inicio: " + sesion.HoraInicio.ToShortTimeString()); //Conversion de dato a ShorTime
+                Console.WriteLine("Hora de Finalización: " + sesion.HoraFinalizacion.ToShortTimeString());// Conversion de dato a ShorTime
                 Console.WriteLine("Ponente: " + sesion.Ponente);
                 Console.WriteLine("Tema: " + sesion.Tema);
                 Console.WriteLine();
             }
+        }
     }
 }
